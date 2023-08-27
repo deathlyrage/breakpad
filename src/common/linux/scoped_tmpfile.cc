@@ -49,6 +49,10 @@
 #define TEMPDIR "/data/local/tmp"
 #endif
 
+#ifndef O_TMPFILE
+#define O_TMPFILE (020000000 | O_DIRECTORY)  // Workaround for older kernel headers
+#endif
+
 namespace google_breakpad {
 
 ScopedTmpFile::ScopedTmpFile() = default;
